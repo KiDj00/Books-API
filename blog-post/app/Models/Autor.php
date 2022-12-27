@@ -14,4 +14,7 @@ class Autor extends Model
         'datum_rodjenja',
         'pol',
     ];
+    public function knjiga(){
+        return  $this->hasMany(Knjiga::class);
+    }
 }

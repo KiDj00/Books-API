@@ -15,4 +15,15 @@ class Knjiga extends Model
         'opis',
 
     ];
+
+    public function autor(){
+        return  $this->belongsTo(Autor::class);
+    }
+    public function zanr(){
+        return  $this->belongsTo(Zanr::class);
+    }
+
+    public function user(){
+        return  $this->belongsTo(User::class);
+    }
 }

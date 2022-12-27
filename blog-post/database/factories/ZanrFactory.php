@@ -1,6 +1,10 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\Knjiga;
+use App\Models\Autor;
+use App\Models\Zanr;
+use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,7 +21,7 @@ class ZanrFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'naziv'=>$this->faker->unique()->word(),
         ];
     }
 }

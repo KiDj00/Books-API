@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('knjigas', function (Blueprint $table) {
             $table->id();
-            $table->string('naziv');
+            $table->string('naziv')->unique();
             $table->string('godina_izdanja');
-            $table->string('opis');
+            $table->string('opis')->unique();
             $table->foreignId('zanr_id');
             $table->foreignId('autor_id');
             $table->timestamps();

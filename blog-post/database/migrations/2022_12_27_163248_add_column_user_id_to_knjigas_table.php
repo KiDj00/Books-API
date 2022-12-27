@@ -13,20 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('zanrs', function (Blueprint $table) {
-            $table->id();
-            $table->string('naziv')->unique();
-            $table->timestamps();
+        Schema::table('knjigas', function (Blueprint $table) {
+            $table->foreignId('user_id');
         });
     }
 
     /**
      * Reverse the migrations.
+     * 
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('zanrs');
+        Schema::table('knjigas', function (Blueprint $table) {
+            $table->dropForeign('user_id');
+        });
     }
 };
