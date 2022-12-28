@@ -24,9 +24,6 @@ class KnjigaResource extends JsonResource
             'zanr'=>$this->resource->zanr_id,
             'user'=>new UserResource($this->resource->user),
             'autor'=>new AutorResource($this->resource->autor),
-
-
-
         ];
     }
 }

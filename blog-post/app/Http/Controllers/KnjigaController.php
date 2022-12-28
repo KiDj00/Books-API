@@ -72,10 +72,14 @@ class KnjigaController extends Controller
      * @param  \App\Models\Knjiga  $knjiga
      * @return \Illuminate\Http\Response
      */
-    public function show(Knjiga $knjiga)
+    public function show($knjiga_id)
     {
-    return new KnjigaResource($knjiga);
+        $knjiga = Knjiga::find($knjiga_id);
+        if (is_null($knjiga)) {
+            return response()->json("Nije pronadjena knjiga sa ovim id-jem", 404);
+        }
 
+        return response()->json(new KnjigaResource($knjiga));
     }
 
     /**

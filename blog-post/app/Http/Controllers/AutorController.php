@@ -21,8 +21,9 @@ class AutorController extends Controller
         $autors = Autor::all();
         return $autors;
 
-      //  $autors=Autor::all();
-      //  return new AutorCollection($autors);
+     //  $autor=AutorAutorResource::all();
+    // return new AutorCollection($autor);
+    
     }
 
     /**
@@ -52,9 +53,14 @@ class AutorController extends Controller
      * @param  \App\Models\Autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function show(Autor $autor)
+    public function show( $autor_id)
     {
-        return new AutorResource($autor);
+        $autor = Autor::find($autor_id);
+        if (is_null($autor)) {
+            return response()->json("Nije pronadjena zanr sa ovim id-jem", 404);
+        }
+
+        return response()->json(new AutorResource($autor));
     }
 
     /**

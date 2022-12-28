@@ -25,15 +25,15 @@ class DatabaseSeeder extends Seeder
 
 
 
-        \App\Models\User::factory(5)->create();
+       // \App\Models\User::factory(5)->create();
 
 
 
-        Knjiga::factory(3)->create();
+        Knjiga::factory(5)->create();
 
-/*
 
-        Knjiga::create([
+
+       /* Knjiga::create([
 
             'id' => 1,
 

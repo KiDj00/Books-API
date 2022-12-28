@@ -14,7 +14,6 @@ class Zanr extends Model
 
     ];
 
-
     public function knjiga(){
         return  $this->hasMany(Knjiga::class);
     }

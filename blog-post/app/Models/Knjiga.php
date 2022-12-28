@@ -15,7 +15,7 @@ class Knjiga extends Model
     //    'naziv',
       //  'godina_izdanja',
      //   'opis',
-
+    
   //  ];
 
     public function autor(){
