@@ -3,6 +3,7 @@ use App\Models\Knjiga;
 use App\Models\Autor;
 use App\Models\Zanr;
 use App\Models\User;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KnjigaController;
 use App\Http\Controllers\AutorController;
@@ -33,8 +34,17 @@ Route::get('/users/{id}', [UserController::class, 'show'])->name('users.index');
 //Route::resource('knjigas', KnjigaController::class);
 //Route::resource('user.knjigas', UserKnjigaController::class);
 Route::get('users/{id}/knjigas', [UserKnjigaController::class,'index'])->name('users.knjigas.index');
-Route::resource('knjiga', KnjigaController::class)->only(['index','show','update','store','destroy']);
+Route::resource('knjiga', KnjigaController::class)->only(['index','show']);
 Route::resource('autor', AutorController::class);
 Route::resource('zanr', ZanrController::class);
 Route::resource('autor.knjiga', KnjigaAutorController::class);
 Route::resource('zanr.knjiga', KnjigaZanrController::class);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::group(['middleware'=>['auth:sanctum']], function(){
+    Route::get('/profile', function(Request $request){
+        return auth()->user();
+    });
+    Route::resource('knjiga', KnjigaController::class)->only(['update','store','destroy']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+});

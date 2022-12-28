@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Autor extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $guarded=[];
+
+
+   /* protected $fillable=[
         'ime',
         'prezime',
         'datum_rodjenja',
         'pol',
-    ];
+    ];*/
     public function knjiga(){
         return  $this->hasMany(Knjiga::class);
     }

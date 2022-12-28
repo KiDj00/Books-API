@@ -9,12 +9,14 @@ class Knjiga extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'naziv',
-        'godina_izdanja',
-        'opis',
+    protected $guarded=[];
 
-    ];
+   // protected $fillable = [
+    //    'naziv',
+      //  'godina_izdanja',
+     //   'opis',
+
+  //  ];
 
     public function autor(){
         return  $this->belongsTo(Autor::class);
