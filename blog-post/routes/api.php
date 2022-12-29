@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/users', [UserController::class, 'index'])->name('users.show');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.index');
-Route::get('users/{id}/knjigas', [UserKnjigaController::class,'index'])->name('users.knjigas.index');
+Route::get('users/{id}/knjiga', [UserKnjigaController::class,'index'])->name('users.knjigas.index');
 Route::resource('knjiga', KnjigaController::class)->only(['index','show']);
 Route::resource('autor', AutorController::class);
 Route::resource('zanr', ZanrController::class);

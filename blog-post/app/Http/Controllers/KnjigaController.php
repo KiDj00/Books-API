@@ -19,8 +19,6 @@ class KnjigaController extends Controller
     public function index()
     {
         $knjigas = Knjiga::all();
-       // return $knjigas;
-      //  return KnjigaResource::collection($knjigas);
       return new KnjigaCollection($knjigas);
     }
 
@@ -117,7 +115,7 @@ class KnjigaController extends Controller
         $knjiga->naziv=$request->naziv;
         $knjiga->opis=$request->opis;
         $knjiga->godina_izdanja=$request->godina_izdanja;
-        $knjiga->category_id=$request->category_id;
+        $knjiga->zanr_id=$request->zanr_id;
         $knjiga->autor_id=$request->autor_id;
 
         
